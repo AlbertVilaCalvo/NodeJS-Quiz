@@ -27,7 +27,7 @@ exports.create = function(req, res) {
       return;
     }
     // Crear req.session.user y guardar campos id y username
-    req.session.user = { id: user.id, username: user.username };
+    req.session.user = { id: user.id, username: user.username, lastRequestTime: Date.now() };
     // Redireccion a path anterior a login (ver app.js)
     res.redirect(req.session.redir.toString());
   });
